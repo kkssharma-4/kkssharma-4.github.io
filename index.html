@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KK Sharma | Portfolio</title>
+<title>KK Sharma | Cyber Portfolio</title>
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: #0ff;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+h1 {
+  font-size: 50px;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #0ff; }
+  to { text-shadow: 0 0 30px #00f7ff; }
+}
+
+.card {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #0ff;
+  padding:20px;
+  margin:20px auto;
+  width:300px;
+  box-shadow: 0 0 20px #0ff;
+  border-radius:10px;
+}
+
+button {
+  background:black;
+  color:#0ff;
+  border:1px solid #0ff;
+  padding:10px 20px;
+  cursor:pointer;
+  box-shadow: 0 0 10px #0ff;
+}
+
+button:hover {
+  background:#0ff;
+  color:black;
+}
+</style>
 </head>
+
 <body>
-  <h1>Hello, I'm KK Sharma</h1>
-  <p>BSc CS Student | Learning AI/ML & Cloud</p>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Python</li>
-    <li>AWS Basics</li>
-  </ul>
+<h1>KK SHARMA</h1>
+<p>AI/ML | Cloud | Developer</p>
 
+<div class="card">
   <h2>Projects</h2>
-  <p>Coming soon...</p>
+  <p>Coming Soon...</p>
+  <button>Explore</button>
+</div>
 
-  <h2>Contact</h2>
-  <p>Email: yourmail@gmail.com</p>
 </body>
 </html>
+
