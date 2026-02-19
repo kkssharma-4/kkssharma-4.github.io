@@ -1,65 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>KK Sharma | Cyber Portfolio</title>
-<style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: black;
-  color: #0ff;
-  text-align:center;
-  overflow-x:hidden;
-}
-
-h1 {
-  font-size: 50px;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #0ff; }
-  to { text-shadow: 0 0 30px #00f7ff; }
-}
-
-.card {
-  background: rgba(0,0,0,0.6);
-  border: 1px solid #0ff;
-  padding:20px;
-  margin:20px auto;
-  width:300px;
-  box-shadow: 0 0 20px #0ff;
-  border-radius:10px;
-}
-
-button {
-  background:black;
-  color:#0ff;
-  border:1px solid #0ff;
-  padding:10px 20px;
-  cursor:pointer;
-  box-shadow: 0 0 10px #0ff;
-}
-
-button:hover {
-  background:#0ff;
-  color:black;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>My Retro OS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>KK SHARMA</h1>
-<p>AI/ML | Cloud | Developer</p>
+    <!-- The Desktop Area -->
+    <div class="desktop">
+        
+        <!-- Icon 1: Projects -->
+        <div class="icon" onclick="openWindow('projects')">
+            <img src="folder-icon.png" alt="Folder">
+            <p>My Projects</p>
+        </div>
 
-<div class="card">
-  <h2>Projects</h2>
-  <p>Coming Soon...</p>
-  <button>Explore</button>
-</div>
+        <!-- Icon 2: About Me -->
+        <div class="icon" onclick="openWindow('about')">
+            <img src="user-icon.png" alt="User">
+            <p>About Me</p>
+        </div>
 
+        <!-- Icon 3: Settings -->
+        <div class="icon" onclick="openWindow('settings')">
+            <img src="gear-icon.png" alt="Settings">
+            <p>Settings</p>
+        </div>
+
+        <!-- WINDOW: Projects -->
+        <div id="projects" class="window hidden">
+            <div class="title-bar">
+                <div class="title-bar-text">My Projects</div>
+                <div class="title-bar-controls">
+                    <button onclick="closeWindow('projects')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Here is a list of my work...</p>
+                <!-- Put your project links here -->
+            </div>
+        </div>
+
+        <!-- WINDOW: About Me -->
+        <div id="about" class="window hidden">
+            <div class="title-bar">
+                <div class="title-bar-text">Resume / Bio</div>
+                <div class="title-bar-controls">
+                    <button onclick="closeWindow('about')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Hi! I am a web developer...</p>
+            </div>
+        </div>
+
+        <!-- WINDOW: Settings -->
+        <div id="settings" class="window hidden">
+            <div class="title-bar">
+                <div class="title-bar-text">Control Panel</div>
+                <div class="title-bar-controls">
+                    <button onclick="closeWindow('settings')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Change Theme:</p>
+                <button onclick="changeTheme('teal')">Classic Teal</button>
+                <button onclick="changeTheme('dark')">Hacker Dark</button>
+                <button onclick="changeTheme('pink')">Vaporwave</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The Taskbar -->
+    <div class="taskbar">
+        <button class="start-btn">Start</button>
+        <div class="clock" id="clock">12:00 PM</div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
