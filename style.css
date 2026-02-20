@@ -5,58 +5,104 @@
 body{
 margin:0;
 background:var(--bg-color);
-font-family:Courier New;
+font-family:Tahoma;
 overflow:hidden;
 }
 
-/* BOOT */
-#bootScreen{
+/* WARNING */
+
+#winWarning{
 position:fixed;
 width:100%;
 height:100%;
-background:black;
-color:lime;
+background:#008080;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
 z-index:9999;
 }
 
+.win95-box{
+width:340px;
+background:#c0c0c0;
+border-top:2px solid white;
+border-left:2px solid white;
+border-right:2px solid black;
+border-bottom:2px solid black;
+}
+
+.win95-title{
+background:#000080;
+color:white;
+padding:4px;
+font-weight:bold;
+}
+
+.win95-body{
+padding:15px;
+}
+
+.warn-content{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.warn-icon{
+font-size:28px;
+}
+
+.btn-area{
+text-align:center;
+margin-top:15px;
+}
+
+.btn-area button{
+padding:4px 25px;
+background:#c0c0c0;
+border:2px solid;
+border-color:white black black white;
+}
+
 /* DESKTOP */
+
 .desktop{
 padding:20px;
-height:90vh;
 }
 
 .icon{
-width:90px;
+width:80px;
 text-align:center;
 color:white;
-cursor:grab;
+cursor:pointer;
 position:absolute;
 }
 
 .icon i{
-font-size:45px;
+font-size:40px;
 }
 
-/* WINDOW */
+/* WINDOWS */
+
 .window{
 position:absolute;
-top:100px;
+top:120px;
 left:200px;
+width:300px;
 background:#c0c0c0;
 border:2px solid black;
-width:300px;
 }
 
 .title-bar{
 background:#000080;
 color:white;
-padding:5px;
 display:flex;
 justify-content:space-between;
+padding:4px;
+}
+
+.window-body{
+padding:10px;
 }
 
 .hidden{
@@ -64,6 +110,7 @@ display:none;
 }
 
 /* TASKBAR */
+
 .taskbar{
 position:fixed;
 bottom:0;
@@ -71,22 +118,5 @@ width:100%;
 background:#c0c0c0;
 display:flex;
 justify-content:space-between;
-padding:5px;
-}
-
-/* START MENU */
-.start-menu{
-position:fixed;
-bottom:40px;
-left:5px;
-background:#c0c0c0;
-padding:10px;
-border:2px solid black;
-}
-
-.context-menu{
-position:absolute;
-background:#c0c0c0;
-border:2px solid black;
 padding:5px;
 }
