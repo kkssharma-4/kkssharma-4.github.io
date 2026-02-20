@@ -1,78 +1,82 @@
-// script.js
+let z=1;
 
-// 1. Clock Logic
-function updateClock() {
-    const now = new Date();
-    document.getElementById('clock').innerText = now.toLocaleTimeString();
+/* CLOCK */
+setInterval(()=>{
+document.getElementById("clock")
+.innerText=new Date().toLocaleTimeString();
+},1000);
+
+/* BOOT */
+window.onload=()=>{
+setTimeout(()=>{
+document.getElementById("bootScreen").style.display="none";
+},2500);
+};
+
+/* WINDOWS */
+function openWindow(id){
+const w=document.getElementById(id);
+w.classList.remove("hidden");
+w.style.zIndex=++z;
 }
-setInterval(updateClock, 1000);
-updateClock();
 
-// 2. Window Logic
-function openWindow(id) {
-    const win = document.getElementById(id);
-    win.classList.remove('hidden');
-    
-    // Optional: Bring to front logic would go here (z-index)
+function closeWindow(id){
+document.getElementById(id).classList.add("hidden");
 }
 
-function closeWindow(id) {
-    const win = document.getElementById(id);
-    win.classList.add('hidden');
+function minimizeWindow(id){
+closeWindow(id);
 }
 
-// 3. Theme Switcher Logic
-function changeTheme(theme) {
-    const root = document.documentElement;
-    
-    if (theme === 'teal') {
-        root.style.setProperty('--bg-color', '#008080'); // Teal
-    } else if (theme === 'dark') {
-        root.style.setProperty('--bg-color', '#2b2b2b'); // Dark Gray
-    } else if (theme === 'pink') {
-        root.style.setProperty('--bg-color', '#ff71ce'); // Pink
-    }
+/* THEME */
+function changeTheme(t){
+document.documentElement.style
+.setProperty("--bg-color",
+t==="dark"?"#222":
+t==="pink"?"#ff71ce":"#008080");
 }
-dragElement(document.getElementById("projects"));
-dragElement(document.getElementById("about"));
-dragElement(document.getElementById("settings"));
 
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  
-  // if present, the header is where you move the DIV from:
-  if (elmnt.querySelector(".title-bar")) {
-    elmnt.querySelector(".title-bar").onmousedown = dragMouseDown;
-  } else {
-    elmnt.onmousedown = dragMouseDown;
-  }
+/* START MENU */
+document.querySelector(".start-btn")
+.onclick=()=>{
+document.getElementById("startMenu")
+.classList.toggle("hidden");
+};
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-  }
+/* RIGHT CLICK */
+document.addEventListener("contextmenu",e=>{
+e.preventDefault();
+const m=document.getElementById("contextMenu");
+m.style.top=e.pageY+"px";
+m.style.left=e.pageX+"px";
+m.classList.remove("hidden");
+});
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+document.addEventListener("click",()=>{
+contextMenu.classList.add("hidden");
+});
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+/* ICON DRAG */
+document.querySelectorAll(".icon")
+.forEach(icon=>{
+icon.onmousedown=function(e){
+let shiftX=e.clientX-icon.getBoundingClientRect().left;
+let shiftY=e.clientY-icon.getBoundingClientRect().top;
+
+function moveAt(pageX,pageY){
+icon.style.left=pageX-shiftX+"px";
+icon.style.top=pageY-shiftY+"px";
 }
+
+function onMouseMove(e){
+moveAt(e.pageX,e.pageY);
+}
+
+document.addEventListener("mousemove",onMouseMove);
+
+icon.onmouseup=function(){
+document.removeEventListener("mousemove",onMouseMove);
+icon.onmouseup=null;
+};
+};
+});
