@@ -1,6 +1,7 @@
 /* style.css */
+
 :root {
-    --bg-color: #008080; /* Classic Teal */
+    --bg-color: #008080;
     --win-bg: #c0c0c0;
     --text-color: black;
 }
@@ -10,10 +11,11 @@ body {
     overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--bg-color);
-    user-select: none; /* Prevents highlighting text like a website */
+    user-select: none;
 }
 
-/* Desktop Icons */
+/* ================= DESKTOP ================= */
+
 .desktop {
     padding: 20px;
     display: flex;
@@ -23,21 +25,44 @@ body {
     align-content: flex-start;
 }
 
+/* Desktop Icon Box */
 .icon {
-    width: 80px;
+    width: 90px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     cursor: pointer;
     color: white;
 }
 
+/* ❌ OLD IMAGE ICON REMOVED */
+/*
 .icon img {
     width: 40px;
     height: 40px;
-    image-rendering: pixelated;
+}
+*/
+
+/* ✅ NEW FONT AWESOME ICON STYLE */
+.icon i {
+    font-size: 45px;
+    display: block;
+    margin-bottom: 6px;
 }
 
-/* The Retro Window Style */
+/* Hover Effect */
+.icon:hover i {
+    transform: scale(1.2);
+    color: cyan;
+    transition: 0.25s;
+}
+
+.icon p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ================= WINDOW ================= */
+
 .window {
     position: absolute;
     top: 50px;
@@ -56,7 +81,7 @@ body {
 }
 
 .title-bar {
-    background: #000080; /* Navy Blue */
+    background: #000080;
     color: white;
     padding: 2px 5px;
     display: flex;
@@ -69,7 +94,8 @@ body {
     padding: 10px;
 }
 
-/* Taskbar */
+/* ================= TASKBAR ================= */
+
 .taskbar {
     position: fixed;
     bottom: 0;
@@ -95,6 +121,7 @@ body {
     cursor: pointer;
 }
 
+/* Start Button Click Effect */
 .start-btn:active {
     border-top: 2px solid #000;
     border-left: 2px solid #000;
@@ -102,6 +129,7 @@ body {
     border-bottom: 2px solid #fff;
 }
 
+/* Clock */
 .clock {
     margin-left: auto;
     margin-right: 10px;
