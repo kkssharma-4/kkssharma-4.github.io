@@ -1,90 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Retro OS</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>KKSSHARMA OS</title>
 
-    <!-- ✅ Icon Library Added -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Desktop -->
-    <div class="desktop">
-        
-        <!-- ✅ Projects -->
-        <div class="icon" onclick="openWindow('projects')">
-            <i class="fa-solid fa-folder"></i>
-            <p>My Projects</p>
-        </div>
+<!-- ================= BOOT / DISCLAIMER ================= -->
+<div id="bootScreen">
+<h1>⚠ ACCESSING KKSSHARMA OS...</h1>
+<p>Unauthorized Coolness Detected 😎</p>
+<p>Loading Secure Portfolio Environment...</p>
+</div>
 
-        <!-- ✅ About -->
-        <div class="icon" onclick="openWindow('about')">
-            <i class="fa-solid fa-user"></i>
-            <p>About Me</p>
-        </div>
+<!-- ================= DESKTOP ================= -->
+<div class="desktop">
 
-        <!-- ✅ ONLY ONE SETTINGS ICON -->
-        <div class="icon" onclick="openWindow('settings')">
-            <i class="fa-solid fa-gear"></i>
-            <p>Settings</p>
-        </div>
+<div class="icon" ondblclick="openWindow('projects')" draggable="true">
+<i class="fa-solid fa-folder"></i>
+<p>Projects</p>
+</div>
 
-        <!-- Projects Window -->
-        <div id="projects" class="window hidden">
-            <div class="title-bar">
-                <div class="title-bar-text">My Projects</div>
-                <div class="title-bar-controls">
-                    <button onclick="closeWindow('projects')">X</button>
-                </div>
-            </div>
-            <div class="window-body">
-                <p>Here is a list of my work...</p>
-            </div>
-        </div>
+<div class="icon" ondblclick="openWindow('about')" draggable="true">
+<i class="fa-solid fa-user"></i>
+<p>About</p>
+</div>
 
-        <!-- About Window -->
-        <div id="about" class="window hidden">
-            <div class="title-bar">
-                <div class="title-bar-text">Resume / Bio</div>
-                <div class="title-bar-controls">
-                    <button onclick="closeWindow('about')">X</button>
-                </div>
-            </div>
-            <div class="window-body">
-                <p>Hi! I am a web developer...</p>
-            </div>
-        </div>
+<div class="icon" ondblclick="openWindow('settings')" draggable="true">
+<i class="fa-solid fa-gear"></i>
+<p>Settings</p>
+</div>
 
-        <!-- ✅ SETTINGS WINDOW (ONLY ONE) -->
-        <div id="settings" class="window hidden">
-            <div class="title-bar">
-                <div class="title-bar-text">Control Panel</div>
-                <div class="title-bar-controls">
-                    <button onclick="closeWindow('settings')">X</button>
-                </div>
-            </div>
-            <div class="window-body">
-                <p>Change Theme:</p>
-                <button onclick="changeTheme('teal')">Classic Teal</button>
-                <button onclick="changeTheme('dark')">Hacker Dark</button>
-                <button onclick="changeTheme('pink')">Vaporwave</button>
-            </div>
-        </div>
 
-    </div>
+<!-- PROJECT WINDOW -->
+<div id="projects" class="window hidden">
+<div class="title-bar">
+<span>Projects</span>
+<div>
+<button onclick="minimizeWindow('projects')">_</button>
+<button onclick="closeWindow('projects')">X</button>
+</div>
+</div>
 
-    <!-- Taskbar -->
-    <div class="taskbar">
-        <button class="start-btn">
-            <i class="fa-solid fa-bars"></i> Start
-        </button>
-        <div class="clock" id="clock">12:00 PM</div>
-    </div>
+<div class="window-body">
+<p>🚀 My Work:</p>
+<ul>
+<li>Retro OS Portfolio</li>
+<li>AI Learning Projects</li>
+<li>Web Development Experiments</li>
+</ul>
+</div>
+</div>
 
-    <script src="script.js"></script>
+
+<!-- ABOUT WINDOW -->
+<div id="about" class="window hidden">
+<div class="title-bar">
+<span>About Me</span>
+<div>
+<button onclick="minimizeWindow('about')">_</button>
+<button onclick="closeWindow('about')">X</button>
+</div>
+</div>
+
+<div class="window-body">
+<h3>Kuldeep Kumar Sharma</h3>
+<p>
+BSc Computer Science Student passionate about
+AI, Development and Technology.
+</p>
+
+<p>
+Currently building skills in:
+</p>
+
+<ul>
+<li>Full Stack Development</li>
+<li>Artificial Intelligence</li>
+<li>Cyber Security</li>
+<li>System Design</li>
+</ul>
+
+<p>
+Goal 🎯 : High Paying Tech Career + Innovation.
+</p>
+</div>
+</div>
+
+
+<!-- SETTINGS -->
+<div id="settings" class="window hidden">
+<div class="title-bar">
+<span>Control Panel</span>
+<div>
+<button onclick="minimizeWindow('settings')">_</button>
+<button onclick="closeWindow('settings')">X</button>
+</div>
+</div>
+
+<div class="window-body">
+<button onclick="changeTheme('teal')">Teal</button>
+<button onclick="changeTheme('dark')">Dark</button>
+<button onclick="changeTheme('pink')">Vaporwave</button>
+</div>
+</div>
+
+</div>
+
+<!-- ================= TASKBAR ================= -->
+<div class="taskbar">
+<button class="start-btn">☰ Start</button>
+<div id="clock"></div>
+</div>
+
+<!-- START MENU -->
+<div id="startMenu" class="start-menu hidden">
+<p onclick="openWindow('about')">About</p>
+<p onclick="openWindow('projects')">Projects</p>
+<p onclick="openWindow('settings')">Settings</p>
+</div>
+
+<!-- RIGHT CLICK -->
+<div id="contextMenu" class="context-menu hidden">
+<p onclick="changeTheme('dark')">Dark Mode</p>
+<p onclick="changeTheme('teal')">Classic</p>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
