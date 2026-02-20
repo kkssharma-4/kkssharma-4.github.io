@@ -1,22 +1,22 @@
-let z=1;
+let zIndex = 1;
 
-/* WARNING CLOSE */
+/* ===== WARNING ===== */
 function startOS(){
 document.getElementById("winWarning").style.display="none";
 }
 
-/* CLOCK */
+/* ===== CLOCK ===== */
 setInterval(()=>{
 document.getElementById("clock")
 .innerText=new Date().toLocaleTimeString();
 },1000);
 
-/* WINDOWS */
+/* ===== WINDOWS ===== */
 
 function openWindow(id){
-let w=document.getElementById(id);
-w.classList.remove("hidden");
-w.style.zIndex=++z;
+const win=document.getElementById(id);
+win.classList.remove("hidden");
+win.style.zIndex=++zIndex;
 }
 
 function closeWindow(id){
@@ -28,11 +28,19 @@ function minimizeWindow(id){
 closeWindow(id);
 }
 
-/* THEME */
+/* ===== THEME ===== */
 
-function changeTheme(t){
+function changeTheme(theme){
+
+if(theme==="dark")
 document.documentElement.style
-.setProperty("--bg-color",
-t==="dark"?"#222":
-t==="pink"?"#ff71ce":"#008080");
+.setProperty("--bg-color","#222");
+
+else if(theme==="pink")
+document.documentElement.style
+.setProperty("--bg-color","#ff71ce");
+
+else
+document.documentElement.style
+.setProperty("--bg-color","#008080");
 }
