@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <title>My Retro OS</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- ✅ STEP 1: ICON LIBRARY ADDED HERE -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
     <!-- The Desktop Area -->
     <div class="desktop">
         
-        <!-- Icon 1: Projects -->
+        <!-- ✅ Icon 1: Projects -->
         <div class="icon" onclick="openWindow('projects')">
-            <img src="folder-icon.png" alt="Folder">
+            <i class="fa-solid fa-folder"></i>
             <p>My Projects</p>
         </div>
 
-        <!-- Icon 2: About Me -->
+        <!-- ✅ Icon 2: About Me -->
         <div class="icon" onclick="openWindow('about')">
-            <img src="user-icon.png" alt="User">
+            <i class="fa-solid fa-user"></i>
             <p>About Me</p>
         </div>
 
-        <!-- Icon 3: Settings -->
+        <!-- ✅ Icon 3: Settings -->
         <div class="icon" onclick="openWindow('settings')">
-            <img src="gear-icon.png" alt="Settings">
+            <i class="fa-solid fa-gear"></i>
             <p>Settings</p>
         </div>
 
@@ -38,7 +43,6 @@
             </div>
             <div class="window-body">
                 <p>Here is a list of my work...</p>
-                <!-- Put your project links here -->
             </div>
         </div>
 
@@ -73,9 +77,12 @@
 
     </div>
 
-    <!-- The Taskbar -->
+    <!-- Taskbar -->
     <div class="taskbar">
-        <button class="start-btn">Start</button>
+        <button class="start-btn">
+            <i class="fa-solid fa-bars"></i> Start
+        </button>
+
         <div class="clock" id="clock">12:00 PM</div>
     </div>
 
