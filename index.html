@@ -5,35 +5,35 @@
     <title>My Retro OS</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- ✅ STEP 1: ICON LIBRARY ADDED HERE -->
+    <!-- ✅ Icon Library Added -->
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- The Desktop Area -->
+    <!-- Desktop -->
     <div class="desktop">
         
-        <!-- ✅ Icon 1: Projects -->
+        <!-- ✅ Projects -->
         <div class="icon" onclick="openWindow('projects')">
             <i class="fa-solid fa-folder"></i>
             <p>My Projects</p>
         </div>
 
-        <!-- ✅ Icon 2: About Me -->
+        <!-- ✅ About -->
         <div class="icon" onclick="openWindow('about')">
             <i class="fa-solid fa-user"></i>
             <p>About Me</p>
         </div>
 
-        <!-- ✅ Icon 3: Settings -->
+        <!-- ✅ ONLY ONE SETTINGS ICON -->
         <div class="icon" onclick="openWindow('settings')">
             <i class="fa-solid fa-gear"></i>
             <p>Settings</p>
         </div>
 
-        <!-- WINDOW: Projects -->
+        <!-- Projects Window -->
         <div id="projects" class="window hidden">
             <div class="title-bar">
                 <div class="title-bar-text">My Projects</div>
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <!-- WINDOW: About Me -->
+        <!-- About Window -->
         <div id="about" class="window hidden">
             <div class="title-bar">
                 <div class="title-bar-text">Resume / Bio</div>
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <!-- WINDOW: Settings -->
+        <!-- ✅ SETTINGS WINDOW (ONLY ONE) -->
         <div id="settings" class="window hidden">
             <div class="title-bar">
                 <div class="title-bar-text">Control Panel</div>
@@ -82,7 +82,6 @@
         <button class="start-btn">
             <i class="fa-solid fa-bars"></i> Start
         </button>
-
         <div class="clock" id="clock">12:00 PM</div>
     </div>
 
