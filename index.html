@@ -8,7 +8,6 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body>
@@ -16,28 +15,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <!-- ================= WINDOWS 95 WARNING ================= -->
 
 <div id="winWarning">
-<div class="win95-box">
+  <div class="win95-box">
 
-<div class="win95-title">
-Warning
-</div>
+    <div class="win95-title">Warning</div>
 
-<div class="win95-body">
+    <div class="win95-body">
 
-<div class="warn-content">
-<span class="warn-icon">⚠</span>
+      <div class="warn-content">
+        <span class="warn-icon">⚠</span>
+        <p>
+        Explore at your own risk.<br>
+        </p>
+      </div>
 
-<p>
-Explore at your own risk.<br>
-</p>
-</div>
+      <div class="btn-area">
+        <button onclick="startOS()">OK</button>
+      </div>
 
-<div class="btn-area">
-<button onclick="startOS()">OK</button>
-</div>
+    </div>
 
-</div>
-</div>
+  </div>
 </div>
 
 
@@ -63,8 +60,7 @@ Explore at your own risk.<br>
 </div>
 
 
-<!-- ================= ABOUT ================= -->
-
+<!-- ABOUT WINDOW -->
 <div id="about" class="window hidden">
 <div class="title-bar">
 About Me
@@ -75,30 +71,14 @@ About Me
 </div>
 
 <div class="window-body">
-<h3>Kuldeep Kumar Sharma</h3>
-
-<p>
-BSc Computer Science student passionate about
-AI, Development and Technology.
-</p>
-
-<p>
-Skills:
-</p>
-
-<ul>
-<li>Web Development</li>
-<li>AI/ML Learning</li>
-<li>Cyber Security</li>
-<li>System Design</li>
-</ul>
-
+<h3>Krishan Kant Sharma</h3>
+<p>BSc Computer Science Student.</p>
+<p>Learning AI, Web Dev & Cyber Security.</p>
 </div>
 </div>
 
 
-<!-- ================= PROJECT ================= -->
-
+<!-- PROJECT WINDOW -->
 <div id="projects" class="window hidden">
 <div class="title-bar">
 Projects
@@ -110,13 +90,12 @@ Projects
 
 <div class="window-body">
 <p>Retro OS Portfolio</p>
-<p>More projects coming soon...</p>
+<p>More coming soon...</p>
 </div>
 </div>
 
 
-<!-- ================= SETTINGS ================= -->
-
+<!-- SETTINGS -->
 <div id="settings" class="window hidden">
 <div class="title-bar">
 Control Panel
@@ -127,17 +106,14 @@ Control Panel
 </div>
 
 <div class="window-body">
-
 <button onclick="changeTheme('teal')">Classic</button>
 <button onclick="changeTheme('dark')">Dark</button>
 <button onclick="changeTheme('pink')">Pink</button>
-
 </div>
 </div>
 
 
-<!-- ================= TASKBAR ================= -->
-
+<!-- TASKBAR -->
 <div class="taskbar">
 <button class="start-btn">Start</button>
 <div id="clock"></div>
