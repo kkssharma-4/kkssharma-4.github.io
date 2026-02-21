@@ -1,35 +1,32 @@
-let zIndex = 1;
+let zIndex=1;
 
-/* ===== WARNING ===== */
+/* WARNING */
 function startOS(){
 document.getElementById("winWarning").style.display="none";
 }
 
-/* ===== CLOCK ===== */
+/* CLOCK */
 setInterval(()=>{
 document.getElementById("clock")
 .innerText=new Date().toLocaleTimeString();
 },1000);
 
-/* ===== WINDOWS ===== */
-
+/* WINDOWS */
 function openWindow(id){
-const win=document.getElementById(id);
+let win=document.getElementById(id);
 win.classList.remove("hidden");
 win.style.zIndex=++zIndex;
 }
 
 function closeWindow(id){
-document.getElementById(id)
-.classList.add("hidden");
+document.getElementById(id).classList.add("hidden");
 }
 
 function minimizeWindow(id){
 closeWindow(id);
 }
 
-/* ===== THEME ===== */
-
+/* THEME */
 function changeTheme(theme){
 
 if(theme==="dark")
