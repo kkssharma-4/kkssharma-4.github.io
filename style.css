@@ -1,120 +1,134 @@
-:root{
---bg-color:#008080;
+:root {
+  --bg-color: #008080;
 }
 
-body{
-margin:0;
-background:var(--bg-color);
-font-family:Tahoma;
-overflow:hidden;
+body {
+  margin: 0;
+  background: var(--bg-color);
+  font-family: Tahoma;
+  overflow: hidden;
 }
 
 /* ===== WARNING ===== */
 
-#winWarning{
-position:fixed;
-width:100%;
-height:100%;
-background:#008080;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
+#winWarning {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #008080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-.win95-box{
-width:340px;
-background:#c0c0c0;
-border-top:2px solid white;
-border-left:2px solid white;
-border-right:2px solid black;
-border-bottom:2px solid black;
+.win95-box {
+  width: 340px;
+  background: #c0c0c0;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
-.win95-title{
-background:#000080;
-color:white;
-padding:4px;
+.win95-title {
+  background: #000080;
+  color: white;
+  padding: 4px;
 }
 
-.win95-body{
-padding:15px;
+.win95-body {
+  padding: 15px;
 }
 
-.warn-content{
-display:flex;
-gap:10px;
-align-items:center;
+.warn-content {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.btn-area{
-text-align:center;
-margin-top:15px;
+.btn-area {
+  text-align: center;
+  margin-top: 15px;
 }
 
 /* ===== DESKTOP GRID ===== */
 
-.desktop{
-display:flex;
-flex-direction:column;
-flex-wrap:wrap;
-height:90vh;
-padding:20px;
-gap:25px;
-align-content:flex-start;
+.desktop {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90vh;
+  padding: 20px;
+  gap: 25px;
+  align-content: flex-start;
 }
 
-.icon{
-width:80px;
-text-align:center;
-color:white;
-cursor:pointer;
+.icon {
+  width: 80px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
 }
 
-.icon i{
-font-size:40px;
-margin-bottom:5px;
+.icon i {
+  font-size: 40px;
+  margin-bottom: 5px;
 }
 
-.icon:hover{
-background:rgba(255,255,255,0.2);
+.icon:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* ===== WINDOWS ===== */
 
-.window{
-position:absolute;
-top:120px;
-left:200px;
-width:300px;
-background:#c0c0c0;
-border:2px solid black;
+.window {
+  position: absolute;
+  top: 120px;
+  left: 200px;
+  width: 300px;
+  background: #c0c0c0;
+  border: 2px solid black;
+  /* Smooth movement while dragging */
+  will-change: left, top;
 }
 
-.title-bar{
-background:#000080;
-color:white;
-display:flex;
-justify-content:space-between;
-padding:4px;
+.title-bar {
+  background: #000080;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  /* Show grab cursor so user knows it's draggable */
+  cursor: grab;
+  user-select: none;
 }
 
-.window-body{
-padding:10px;
+.title-bar:active {
+  cursor: grabbing;
 }
 
-.hidden{
-display:none;
+.title-bar button {
+  cursor: pointer;
+}
+
+.window-body {
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ===== TASKBAR ===== */
 
-.taskbar{
-position:fixed;
-bottom:0;
-width:100%;
-background:#c0c0c0;
-display:flex;
-justify-content:space-between;
-padding:5px;
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #c0c0c0;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  z-index: 10000;
 }
