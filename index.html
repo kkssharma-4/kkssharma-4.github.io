@@ -3,124 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <title>KKSSHARMA OS</title>
-
 <link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
+<!-- ================= BOOT SCREEN ================= -->
+<div id="bootScreen">
+  <div class="boot-content">
+    <pre class="bios-text">KKSSHARMA OS  v1.0
+Copyright (C) 2025. All Rights Reserved.
+
+CPU: Brain v2.0 @ 3.14GHz
+RAM: 64MB Caffeine
+HDD: Infinite Ideas
+
+Detecting hardware... <span id="boot-hw">OK</span>
+Loading kernel...     <span id="boot-kern"></span>
+Starting GUI...       <span id="boot-gui"></span>
+</pre>
+    <div class="boot-bar-wrap">
+      <div class="boot-bar" id="bootBar"></div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ================= WINDOWS 95 WARNING ================= -->
-
-<div id="winWarning">
+<div id="winWarning" style="display:none;">
   <div class="win95-box">
-
-    <div class="win95-title">Warning</div>
-
+    <div class="win95-title">⚠ Warning</div>
     <div class="win95-body">
-
       <div class="warn-content">
         <span class="warn-icon">⚠</span>
-        <p>
-        Explore at your own risk.<br>
-        Watch at your own risk.
-        </p>
+        <p>Explore at your own risk.<br>Watch at your own risk.</p>
       </div>
-
       <div class="btn-area">
         <button onclick="startOS()">OK</button>
       </div>
+    </div>
+  </div>
+</div>
 
+
+<!-- ================= DESKTOP ================= -->
+<div class="desktop" id="desktop" style="display:none;">
+
+  <div class="icon" ondblclick="openWindow('about')">
+    <i class="fa-solid fa-user"></i><p>About</p>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('projects')">
+    <i class="fa-solid fa-folder"></i><p>Projects</p>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('skills')">
+    <i class="fa-solid fa-file-lines"></i><p>Skills</p>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('terminal')">
+    <i class="fa-solid fa-terminal"></i><p>Terminal</p>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('contact')">
+    <i class="fa-solid fa-envelope"></i><p>Contact</p>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('settings')">
+    <i class="fa-solid fa-gear"></i><p>Settings</p>
+  </div>
+
+</div>
+
+
+<!-- ================= RIGHT-CLICK MENU ================= -->
+<div id="ctxMenu" class="ctx-menu hidden">
+  <div class="ctx-item" onclick="openWindow('settings');hideCtx()">⚙ Display Settings</div>
+  <div class="ctx-separator"></div>
+  <div class="ctx-item" onclick="openWindow('about');hideCtx()">👤 About this PC</div>
+  <div class="ctx-item" onclick="refreshDesktop();hideCtx()">🔄 Refresh</div>
+  <div class="ctx-separator"></div>
+  <div class="ctx-item" onclick="shutDown()">⏻ Shut Down</div>
+</div>
+
+
+<!-- ================= START MENU ================= -->
+<div id="startMenu" class="start-menu hidden">
+  <div class="start-sidebar">
+    <span>KKSSHARMA OS</span>
+  </div>
+  <div class="start-items">
+    <div class="start-item" onclick="openWindow('about');toggleStart()"><i class="fa-solid fa-user"></i> About Me</div>
+    <div class="start-item" onclick="openWindow('projects');toggleStart()"><i class="fa-solid fa-folder"></i> Projects</div>
+    <div class="start-item" onclick="openWindow('skills');toggleStart()"><i class="fa-solid fa-file-lines"></i> Skills</div>
+    <div class="start-item" onclick="openWindow('terminal');toggleStart()"><i class="fa-solid fa-terminal"></i> Terminal</div>
+    <div class="start-item" onclick="openWindow('contact');toggleStart()"><i class="fa-solid fa-envelope"></i> Contact</div>
+    <div class="start-item" onclick="openWindow('settings');toggleStart()"><i class="fa-solid fa-gear"></i> Settings</div>
+    <div class="start-separator"></div>
+    <div class="start-item danger" onclick="shutDown()"><i class="fa-solid fa-power-off"></i> Shut Down</div>
+  </div>
+</div>
+
+
+<!-- ================= WINDOWS ================= -->
+
+<!-- ABOUT -->
+<div id="about" class="window hidden">
+  <div class="title-bar">About Me
+    <div><button onclick="minimizeWindow('about')">_</button><button onclick="closeWindow('about')">X</button></div>
+  </div>
+  <div class="window-body">
+    <h3>Krishan Kant Sharma</h3>
+    <p>BSc Computer Science Student.</p>
+    <p>Learning AI, Web Development &amp; Cyber Security.</p>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="window hidden">
+  <div class="title-bar">Projects
+    <div><button onclick="minimizeWindow('projects')">_</button><button onclick="closeWindow('projects')">X</button></div>
+  </div>
+  <div class="window-body">
+    <p>📁 Retro OS Portfolio</p>
+    <p style="color:#555;font-size:13px;margin-top:8px;">More projects coming soon...</p>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="window hidden" style="width:320px;">
+  <div class="title-bar">Notepad — skills.txt
+    <div><button onclick="minimizeWindow('skills')">_</button><button onclick="closeWindow('skills')">X</button></div>
+  </div>
+  <div class="window-body notepad-body">
+    <pre>
+===== KRISHAN KANT SHARMA =====
+
+[ LANGUAGES ]
+  Python
+  JavaScript
+  HTML / CSS
+  C (learning)
+
+[ WEB DEV ]
+  HTML5, CSS3
+  JavaScript (vanilla)
+  Responsive Design
+
+[ AI / ML ]
+  Prompt Engineering
+  Learning ML basics
+
+[ CYBER SECURITY ]
+  Networking fundamentals
+  Linux basics
+  CTF beginner
+
+[ TOOLS ]
+  Git & GitHub
+  VS Code
+  Linux CLI
+
+================================
+    </pre>
+  </div>
+</div>
+
+<!-- TERMINAL -->
+<div id="terminal" class="window hidden" style="width:420px;">
+  <div class="title-bar">Terminal
+    <div><button onclick="minimizeWindow('terminal')">_</button><button onclick="closeWindow('terminal')">X</button></div>
+  </div>
+  <div class="window-body terminal-body">
+    <div id="term-output"></div>
+    <div class="term-input-row">
+      <span class="term-prompt">C:\KKSSHARMA&gt;</span>
+      <input id="termInput" type="text" class="term-input" placeholder="type a command..." autocomplete="off" onkeydown="handleTermKey(event)">
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="window hidden" style="width:300px;">
+  <div class="title-bar">Contact
+    <div><button onclick="minimizeWindow('contact')">_</button><button onclick="closeWindow('contact')">X</button></div>
+  </div>
+  <div class="window-body">
+    <p class="contact-row"><i class="fa-solid fa-envelope"></i> <a href="mailto:kkssharma@example.com">kkssharma@example.com</a></p>
+    <p class="contact-row"><i class="fa-brands fa-github"></i> <a href="https://github.com/kkssharma" target="_blank">github.com/kkssharma</a></p>
+    <p class="contact-row"><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/kkssharma" target="_blank">linkedin.com/in/kkssharma</a></p>
+    <hr style="margin:10px 0;border-color:#aaa;">
+    <p style="font-size:12px;color:#555;">Update these links in index.html</p>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div id="settings" class="window hidden" style="width:380px;">
+  <div class="title-bar">Control Panel
+    <div><button onclick="minimizeWindow('settings')">_</button><button onclick="closeWindow('settings')">X</button></div>
+  </div>
+  <div class="window-body">
+
+    <div class="tab-bar">
+      <button class="tab active" onclick="switchTab('wallpaper',this)">🖼 Wallpaper</button>
+      <button class="tab" onclick="switchTab('theme',this)">🎨 Theme</button>
+      <button class="tab" onclick="switchTab('sound',this)">🔊 Sound</button>
+    </div>
+
+    <!-- Wallpaper Tab -->
+    <div id="tab-wallpaper" class="tab-content">
+      <p class="settings-label">Choose a wallpaper:</p>
+      <div class="wallpaper-grid">
+        <div class="wp-swatch selected" data-wp="solid-teal" title="Classic Teal" style="background:#008080;" onclick="applyWallpaper(this)"><span>Teal</span></div>
+        <div class="wp-swatch" data-wp="solid-navy" title="Navy" style="background:#000080;" onclick="applyWallpaper(this)"><span>Navy</span></div>
+        <div class="wp-swatch" data-wp="solid-dark" title="Dark" style="background:#222;" onclick="applyWallpaper(this)"><span>Dark</span></div>
+        <div class="wp-swatch" data-wp="solid-pink" title="Pink" style="background:#ff71ce;" onclick="applyWallpaper(this)"><span>Pink</span></div>
+        <div class="wp-swatch" data-wp="pattern-dots" title="Dots" style="background-color:#1a1a2e;background-image:radial-gradient(circle,#ffffff22 1px,transparent 1px);background-size:16px 16px;" onclick="applyWallpaper(this)"><span>Dots</span></div>
+        <div class="wp-swatch" data-wp="pattern-grid" title="Grid" style="background-color:#0d0d0d;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:20px 20px;" onclick="applyWallpaper(this)"><span>Grid</span></div>
+        <div class="wp-swatch" data-wp="pattern-stripes" title="Stripes" style="background:repeating-linear-gradient(45deg,#003366,#003366 10px,#004488 10px,#004488 20px);" onclick="applyWallpaper(this)"><span>Stripes</span></div>
+        <div class="wp-swatch" data-wp="pattern-checker" title="Checker" style="background-color:#333;background-image:linear-gradient(45deg,#555 25%,transparent 25%,transparent 75%,#555 75%),linear-gradient(45deg,#555 25%,transparent 25%,transparent 75%,#555 75%);background-size:16px 16px;background-position:0 0,8px 8px;" onclick="applyWallpaper(this)"><span>Check</span></div>
+        <div class="wp-swatch" data-wp="gradient-sunset" title="Sunset" style="background:linear-gradient(135deg,#f093fb,#f5576c,#fda085);" onclick="applyWallpaper(this)"><span>Sunset</span></div>
+        <div class="wp-swatch" data-wp="gradient-ocean" title="Ocean" style="background:linear-gradient(135deg,#0575e6,#021b79);" onclick="applyWallpaper(this)"><span>Ocean</span></div>
+        <div class="wp-swatch" data-wp="gradient-forest" title="Forest" style="background:linear-gradient(135deg,#134e5e,#71b280);" onclick="applyWallpaper(this)"><span>Forest</span></div>
+        <div class="wp-swatch" data-wp="gradient-space" title="Space" style="background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);" onclick="applyWallpaper(this)"><span>Space</span></div>
+      </div>
+      <div id="wp-preview-label" class="wp-preview-label">Selected: Classic Teal</div>
+    </div>
+
+    <!-- Theme Tab -->
+    <div id="tab-theme" class="tab-content hidden">
+      <p class="settings-label">Window title bar colour:</p>
+      <div class="theme-row">
+        <button class="theme-btn" onclick="changeWindowColor('#000080')"><span class="theme-swatch" style="background:#000080;"></span> Classic Blue</button>
+        <button class="theme-btn" onclick="changeWindowColor('#006400')"><span class="theme-swatch" style="background:#006400;"></span> Forest Green</button>
+        <button class="theme-btn" onclick="changeWindowColor('#8b0000')"><span class="theme-swatch" style="background:#8b0000;"></span> Dark Red</button>
+        <button class="theme-btn" onclick="changeWindowColor('#4b0082')"><span class="theme-swatch" style="background:#4b0082;"></span> Indigo</button>
+        <button class="theme-btn" onclick="changeWindowColor('#555555')"><span class="theme-swatch" style="background:#555;"></span> Slate</button>
+      </div>
+    </div>
+
+    <!-- Sound Tab -->
+    <div id="tab-sound" class="tab-content hidden">
+      <p class="settings-label">Sound effects:</p>
+      <div class="sound-row">
+        <label class="sound-toggle">
+          <input type="checkbox" id="soundToggle" checked onchange="toggleSound(this)">
+          Enable sound effects
+        </label>
+      </div>
+      <div class="theme-row" style="margin-top:10px;">
+        <button class="theme-btn" onclick="playSound('open')">▶ Test Open sound</button>
+        <button class="theme-btn" onclick="playSound('close')">▶ Test Close sound</button>
+        <button class="theme-btn" onclick="playSound('error')">▶ Test Error sound</button>
+      </div>
     </div>
 
   </div>
 </div>
 
 
-<!-- ================= DESKTOP ================= -->
-
-<div class="desktop">
-
-<div class="icon" ondblclick="openWindow('about')">
-<i class="fa-solid fa-user"></i>
-<p>About</p>
-</div>
-
-<div class="icon" ondblclick="openWindow('projects')">
-<i class="fa-solid fa-folder"></i>
-<p>Projects</p>
-</div>
-
-<div class="icon" ondblclick="openWindow('settings')">
-<i class="fa-solid fa-gear"></i>
-<p>Settings</p>
-</div>
-
+<!-- ================= TASKBAR ================= -->
+<div class="taskbar" id="taskbar" style="display:none;">
+  <div class="taskbar-left">
+    <button class="start-btn" id="startBtn" onclick="toggleStart()">
+      <i class="fa-solid fa-windows"></i> Start
+    </button>
+    <div id="taskbar-windows"></div>
+  </div>
+  <div id="clock-wrapper">
+    <div id="clock"></div>
+    <div id="clock-tooltip"></div>
+  </div>
 </div>
 
 
-<!-- ABOUT -->
-<div id="about" class="window hidden">
-<div class="title-bar">
-About Me
-<div>
-<button onclick="minimizeWindow('about')">_</button>
-<button onclick="closeWindow('about')">X</button>
-</div>
-</div>
-
-<div class="window-body">
-<h3>Krishan Kant Sharma</h3>
-<p>BSc Computer Science Student.</p>
-<p>Learning AI, Web Development & Cyber Security.</p>
-</div>
-</div>
-
-
-<!-- PROJECT -->
-<div id="projects" class="window hidden">
-<div class="title-bar">
-Projects
-<div>
-<button onclick="minimizeWindow('projects')">_</button>
-<button onclick="closeWindow('projects')">X</button>
-</div>
-</div>
-
-<div class="window-body">
-<p>Retro OS Portfolio</p>
-<p>More projects coming soon...</p>
-</div>
-</div>
-
-
-<!-- SETTINGS -->
-<div id="settings" class="window hidden">
-<div class="title-bar">
-Control Panel
-<div>
-<button onclick="minimizeWindow('settings')">_</button>
-<button onclick="closeWindow('settings')">X</button>
-</div>
-</div>
-
-<div class="window-body">
-<button onclick="changeTheme('teal')">Classic</button>
-<button onclick="changeTheme('dark')">Dark</button>
-<button onclick="changeTheme('pink')">Pink</button>
-</div>
-</div>
-
-
-<!-- TASKBAR -->
-<div class="taskbar">
-<button>Start</button>
-<div id="clock"></div>
+<!-- ================= SHUTDOWN SCREEN ================= -->
+<div id="shutdownScreen" class="hidden">
+  <p>It is now safe to turn off your computer.</p>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
