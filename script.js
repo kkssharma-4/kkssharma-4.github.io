@@ -320,7 +320,7 @@ const termCommands = {
 
   projects: "📁 Retro OS Portfolio — this site!\n   More coming soon...",
 
-  contact: "📧 kkssharma@example.com\n🐙 github.com/kkssharma\n💼 linkedin.com/in/kkssharma",
+  contact: "📧 kkssharma071@gmail.com\n🐙 github.com/kkssharma-4\n💼 https://www.linkedin.com/in/krishan-kant-sharma-3664792b5/",
 
   date: () => new Date().toString(),
 
